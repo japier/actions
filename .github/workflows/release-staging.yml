@@ -32,7 +32,6 @@ name: Build and deploy an app to AKS
 on:
   push:
     branches: ["master"]
-  workflow_dispatch:
 
 env:
   AZURE_CONTAINER_REGISTRY: "cnstaging"
@@ -69,6 +68,7 @@ jobs:
       id-token: write
     runs-on: ubuntu-latest
     needs: [buildImage]
+    environment: staging
     steps:
       # Checks out the repository this file is in
       - uses: actions/checkout@v3
@@ -99,6 +99,8 @@ jobs:
         uses: Azure/k8s-deploy@v4
         with:
           action: deploy
-          manifests:  "infra/k8s"
+          manifests:  |
+            infra/k8s/deployment.yaml
+            infra/k8s/service.yaml
           images: |
             ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ env.CONTAINER_NAME }}:${{ github.sha }}
