@@ -1,0 +1,23 @@
+{
+  "name": "actions",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "jest test/main.spec.js",
+    "start": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/japier/actions.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/japier/actions/issues"
+  },
+  "homepage": "https://github.com/japier/actions#readme",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
