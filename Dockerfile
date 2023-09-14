@@ -1,12 +1,16 @@
-FROM golang:alpine  as builder
+FROM node:18
 
 LABEL maintainer "japier.07@gmail.com"
 
-COPY main.go main.go
-RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o /go/bin/api main.go
+WORKDIR /usr/src/app
 
-FROM alpine
+COPY package*.json ./
 
-COPY --from=builder /go/bin/api /go/bin/api
+RUN npm install
 
-CMD ["go/bin/api"]
+COPY src src
+COPY server.js server.js
+
+EXPOSE 3000
+
+CMD ["npm", "start"]
