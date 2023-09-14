@@ -32,7 +32,6 @@ name: Build and deploy an app to AKS
 on:
   push:
     branches: ["master"]
-  workflow_dispatch:
 
 env:
   AZURE_CONTAINER_REGISTRY: "cnstaging"
