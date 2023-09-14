@@ -10,7 +10,7 @@ spec:
   - port: 80
     protocol: TCP
     # Container port
-    targetPort: ${CONTAINER_PORT}
+    targetPort: 3000
   selector:
     app: api
   type: ClusterIP

@@ -101,6 +101,7 @@ jobs:
         uses: Azure/k8s-deploy@v4
         with:
           action: deploy
+          namespace: japier
           manifests:  |
             infra/k8s/deployment.yaml
             infra/k8s/service.yaml

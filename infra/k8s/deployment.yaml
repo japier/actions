@@ -14,9 +14,5 @@ spec:
       containers:
       - name: api
         imagePullPolicy: "Always"
-        image: "${IMAGE_NAME}"
         ports:
-        - containerPort: ${CONTAINER_PORT}
-        env:
-        - name: VERSION
-          value: "${VERSION}"
+        - containerPort: 3000
