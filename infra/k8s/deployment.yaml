@@ -6,6 +6,9 @@ metadata:
     app: api
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: api
   template:
     metadata:
       labels:
@@ -14,5 +17,6 @@ spec:
       containers:
       - name: api
         imagePullPolicy: "Always"
+        image: cnstaging.azurecr.io/actions
         ports:
         - containerPort: 3000
